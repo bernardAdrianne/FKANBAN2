@@ -1,0 +1,38 @@
+<!-- Overlay for Forms -->
+<div *ngIf="!isLoggedIn && showRegisterForm" id="overlay"></div>
+
+<!-- Registration Form -->
+<div *ngIf="!isLoggedIn && showRegisterForm" class="auth-form-container">
+    <form (ngSubmit)="register()">
+      <div class="auth-form-header">
+        <h1>Signup</h1>
+      </div>
+      <div class="auth-form-group">
+        <label for="registerUsername">Username:</label>
+        <input type="text" id="registerUsername" [(ngModel)]="registerData.username" name="username" required [ngClass]="{ 'input-error': registerErrors.username }"
+               (focus)="handleInputFocus($event)" (blur)="handleInputBlur($event)" (keydown)="handleKeydown($event, registerUsername, registerEmail)" #registerUsername/>
+        <div class="error-message" *ngIf="registerErrors.username">
+          {{ registerErrors.username }}
+        </div>
+      </div>
+      <div class="auth-form-group">
+        <label for="registerEmail">Email:</label>
+        <input type="email" id="registerEmail" [(ngModel)]="registerData.email" name="email" required [ngClass]="{ 'input-error': registerErrors.email }"
+               (focus)="handleInputFocus($event)" (blur)="handleInputBlur($event)" (keydown)="handleKeydown($event, registerEmail, registerPassword)" #registerEmail/>
+        <div class="error-message" *ngIf="registerErrors.email">
+          {{ registerErrors.email }}
+        </div>
+      </div>
+      <div class="auth-form-group">
+        <label for="registerPassword">Password:</label>
+        <input type="password" id="registerPassword" [(ngModel)]="registerData.password" name="password" required [ngClass]="{ 'input-error': registerErrors.password }"
+               (focus)="handleInputFocus($event)" (blur)="handleInputBlur($event)" (keydown)="handleKeydown($event, registerPassword, null)" #registerPassword/>
+        <div class="error-message" *ngIf="registerErrors.password">
+          {{ registerErrors.password }}
+        </div>
+      </div>
+      <button type="submit">Sign up</button>
+      <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+    </form>
+  </div>
+  

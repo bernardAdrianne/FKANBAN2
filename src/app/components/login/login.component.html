@@ -1,0 +1,30 @@
+<!-- Overlay for Forms -->
+<div *ngIf="showLoginForm" id="overlay"></div>
+
+<!-- Login Form -->
+<div *ngIf="showLoginForm" class="auth-form-container">
+    <form (ngSubmit)="login()">
+      <div class="auth-form-header">
+        <h1>Login</h1>
+      </div>
+      <div class="auth-form-group">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" [(ngModel)]="loginData.email" name="email" required [ngClass]="{ 'input-error': loginErrors.email }"
+               (focus)="handleInputFocus($event)" (blur)="handleInputBlur($event)" (keydown)="handleKeydown($event, loginEmail, loginPassword)" #loginEmail/>
+        <div class="error-message" *ngIf="loginErrors.email">
+          {{ loginErrors.email }}
+        </div>
+      </div>
+      <div class="auth-form-group">
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" [(ngModel)]="loginData.password" name="password" required [ngClass]="{ 'input-error': loginErrors.password }"
+               (focus)="handleInputFocus($event)" (blur)="handleInputBlur($event)" (keydown)="handleKeydown($event, loginPassword, null)" #loginPassword/>
+        <div class="error-message" *ngIf="loginErrors.password">
+          {{ loginErrors.password }}
+        </div>
+      </div>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a [routerLink]="['/signup']">Sign up</a></p>
+    </form>
+  </div>
+  

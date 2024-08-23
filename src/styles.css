@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #F5F5F5;
+    height: 100%;
+  }
+  
+  /* Overlay for Forms */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Active Task Form Styles */
+#taskForm.active,
+#editForm.active {
+  display: block;
+}
+  

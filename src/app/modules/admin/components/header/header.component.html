@@ -1,0 +1,58 @@
+<div *ngIf="isLoggedIn && showAddTaskForm" id="overlay"></div>
+
+<!-- Task Manager -->
+<div *ngIf="isLoggedIn">
+  <header >
+    <div class="header-left">
+    <h1 class="title">Kanban</h1>
+    <button *ngIf="isLoggedIn" (click)="logout()" class="logout-button">Logout</button>
+    </div>
+    <div class="header-right">
+    <button class="add-button" (click)="showTaskForm()" aria-label="Add Task">+</button>
+    </div>
+  </header>
+    
+  <div class="board-header">
+    <h2 class="sub-title">To-do Board</h2>
+    </div>
+    
+</div>
+
+  
+ <!-- Add Task Form -->
+<div *ngIf="showAddTaskForm" id="taskForm" class="task-form">
+  <form (ngSubmit)="addTask()">
+    <div class="form-header">
+      <h1>New To-do</h1>
+      <button type="button" class="close-button" (click)="showAddTaskForm = false" aria-label="Close Form">X</button>
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="newTask.name" name="taskName" placeholder="Add a To-do item" [ngClass]="{'input-error': newTaskErrors.name}" required maxlength="50">
+      <div *ngIf="newTaskErrors.name" class="error-text">{{ newTaskErrors.name }}</div>
+    </div>
+    <div class="form-group">
+      <label for="addDueDate">Due Date:</label><br>
+      <input type="date" id="addDueDate" [(ngModel)]="newTask.dueDate" name="dueDate" [ngClass]="{'input-error': newTaskErrors.dueDate}">
+      <div *ngIf="newTaskErrors.dueDate" class="error-text">{{ newTaskErrors.dueDate }}</div>
+    </div>
+    <div class="form-group">
+      <label for="addDueTime">Due Time:</label><br>
+      <input type="time" id="addDueTime" [(ngModel)]="newTask.dueTime" name="dueTime" [ngClass]="{'input-error': newTaskErrors.dueTime}">
+      <div *ngIf="newTaskErrors.dueTime" class="error-text">{{ newTaskErrors.dueTime }}</div>
+    </div>
+    <div class="form-group">
+      <button type="submit">Add Task</button>
+    </div>
+  </form>
+</div>
+ 
+  <!-- Logout Confirmation Modal -->
+<div *ngIf="showLogoutModal" id="logoutModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close-button" (click)="closeLogoutModal()">X</button>
+    <h2>Confirm Logout</h2>
+    <p>Are you sure you want to log out?</p>
+    <button class="logout" (click)="confirmLogout()">Logout</button>
+    <button class="cancel" (click)="closeLogoutModal()">Cancel</button>
+  </div>
+</div>

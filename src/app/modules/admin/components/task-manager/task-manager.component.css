@@ -1,0 +1,370 @@
+/* Task Columns Styles */
+.task-columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  overflow-x: hidden;
+}
+
+.column {
+  flex: 1 1 20%;
+  max-width: 20%;
+  min-width: 200px;
+  box-sizing: border-box;
+  margin: 0 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Column Background Color Styles */
+#todo-column.with-tasks {
+  background-color: rgba(255, 235, 235, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#in-progress-column.with-tasks {
+  background-color: rgba(255, 235, 235, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#done-column.with-tasks {
+  background-color: rgba(255, 235, 235, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.column-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: left;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-title.no-tasks {
+  background-color: rgba(255, 235, 235, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.todo-task-count,
+.inprog-task-count,
+.done-task-count {
+  font-size: 0.9em;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.todo-task-count {
+  background-color: #46A2DA;
+}
+
+.inprog-task-count {
+  background-color: #ECE75F;
+}
+
+.done-task-count {
+  background-color: #83F28F;
+}
+
+/* Dragging Styles */
+.dragging {
+  opacity: 1;
+  border: 2px dashed #666;
+  background-color: #fafafa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.task.dragging h3,
+.task.dragging p {
+  color: #333;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Drag Over Styles */
+.drag-over {
+  border: 2px dashed #aaa;
+}
+
+/* Task Form Styles */
+.task-form {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Form Header Styles */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+    
+.form-header h1 {
+  margin: 0;
+  font-size: 18px;
+}
+    
+.close-button {
+  color: gray;
+  font-size: 14px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+    
+.close-button:hover {
+  color: black;
+}
+    
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+    
+.form-group input,
+.form-group button,
+.form-group label {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+    
+.form-group button {
+  background: black;
+  font-size: 16px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+/* Form Header Styles */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+      
+.form-header h1 {
+  margin: 0;
+  font-size: 18px;
+}
+      
+.close-button {
+  color: gray;
+  font-size: 14px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: black;
+}
+      
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+      
+.form-group input,
+.form-group button,
+.form-group label {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+      
+.form-group button {
+  background: black;
+  font-size: 16px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+      
+.form-group button:hover {
+  background: #3C3C3C;
+}  
+     
+/* Task Container Styles */
+.task {
+  background-color: #F7FCFE;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 1px;
+  transition: border-left 0.3s ease;
+}
+    
+/* Task Column Specific Styles */
+.task.todo {
+  border: .5px solid #CCC;
+  border-left: 10px solid #235284;
+/* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+    
+.task.in-progress {
+  border: 1px solid #CCC;
+  border-left: 10px solid #F9C74F;
+/* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.task.done {
+  border: 1px solid #CCC;
+  border-left: 10px solid #90BE6D;
+/* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+    
+/* Task Details Styles */
+.task-details {
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+    
+.task .task-name {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: none;
+  font-weight: 500;
+  color: black;
+  font-size: 16px;
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+    
+.task p {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  margin-top: 4px;
+  align-items: center;
+  margin-left: 6px;
+  border-top: 1px solid #CCC;
+}
+    
+.due-date-cont {
+  position: relative;
+  margin-bottom: 0;
+}
+    
+.due-date {
+  margin-left: 5px;
+  margin-top: auto;
+}
+    
+.due-time {
+  margin-left: 5px;
+}
+    
+.task.overdue {
+  border: 1px solid #FF2C2C;
+  }
+    
+.overdue-text {
+  color: white;
+  background-color: #FF2C2C;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-weight: 200;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+    
+/* Edit and Delete task button style */
+.edit-task,
+.delete-task {
+  color: #666;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #F7FCFE;
+  padding: 5px;
+  border-radius: 5px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    
+.edit-task ion-icon {
+  font-size: 16px;
+}
+    
+.edit-task:hover,
+.delete-task:hover {
+  color: black;
+}
+    
+.task-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+  z-index: 1;
+}
+
+/* Error Input Style */
+.form-group input.input-error {
+  border: 2px solid #C30010;
+}
+
+.form-group input.focused {
+  border: 2px solid #0066CC;
+}
+
+.form-group input {
+  border: 1px solid gray;
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
